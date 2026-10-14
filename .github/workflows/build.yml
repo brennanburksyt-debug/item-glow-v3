@@ -7,13 +7,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK
-        uses: actions/setup-java@v5
-        with:
-          java-version: '21' # match your project's Java version
-          cache: 'gradle'
+    strategy:
+  matrix:
+    java: [17, 21]
+steps:
+  - uses: actions/setup-java@v5
+    with:
+      distribution: 'temurin'
+      java-version: ${{ matrix.java }}
 
       - name: Build mod jar
         run: ./gradlew jar
