@@ -1,0 +1,19 @@
+name: Build Mod Jar
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # allows manual trigger from Actions tab
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17' # match your project's Java version
+          cache: 'gradle'
+
+      - name: Build mod jar
+        run: ./gradlew jar
