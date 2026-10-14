@@ -1,0 +1,20 @@
+{
+	"schemaVersion": 1,
+	"id": "itemglow",
+	"version": "${version}",
+	"name": "Item Glow",
+	"description": "Animated glowing outline on the items you hold, with an in-game color wheel menu.",
+	"authors": ["You"],
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": ["com.example.itemglow.ItemGlowClient"]
+	},
+	"mixins": ["itemglow.mixins.json"],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
